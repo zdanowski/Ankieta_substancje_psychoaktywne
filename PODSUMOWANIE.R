@@ -1,10 +1,6 @@
-#Skrypt tworzy data.frame o nazwie nnn który pokazuje numeracje kolumn w dane.Rda . Jest to pomocne w orientacji.
-load(file = "dane.Rda")
-nazwy <- colnames(dane)
-numery <- c(1:(length(nazwy)))
-nnn <- data.frame(nazwy, numery)
-remove(nazwy)
-remove(numery)
+# PODSUMOWANIE
+# Analizy zmiennych ilościowych dokonano za pomocą testu U Manna-Whitneya oraz testu Chi Kwadrat. 
+# Analizy zmiennych binarnych dokonano za pomocą testu Chi Kwadrat.
 
 
 # 1. Porównanie testem U manna-whitneya czy jest statystycznie istotna różnica 
@@ -33,6 +29,15 @@ wilcox.test(legal$Ciekawe, nielegal$Ciekawe)
 #data:  legal$Ciekawe and nielegal$Ciekawe
 #W = 23814, p-value = 0.03942 HIPOTEZA ZEROWA ODRZUCONA
 #alternative hypothesis: true location shift is not equal to 0
+
+#Porównanie wieku miedzy grupami
+wilcox.test(legal$Wiek, nielegal$Wiek) 
+
+#Porównanie roku studiów między grupami
+wilcox.test(legal$rok, nielegal$rok) 
+
+
+
 
 print("__________________________________________________________________________________________________", quote = FALSE)
 

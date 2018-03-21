@@ -5,7 +5,7 @@ date: "21 marca 2018"
 output: html_document
 ---
 Opis zmiennych pliku **Dane.Rda**, czyli podstawowego ```data.frame``` tej analizy.
-```{r include=FALSE}
+```{r setup, include=FALS}
 library("knitr", quietly = TRUE)
 ```
 
