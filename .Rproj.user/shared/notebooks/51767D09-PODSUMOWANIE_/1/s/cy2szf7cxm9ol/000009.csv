@@ -1,6 +1,0 @@
-"0","options(warn=-1)"
-"0","or <- data.frame(t(data.frame(exp(coef(model, )))),t(data.frame(confint(model, level = 0.95))))"
-"2","Waiting for profiling to be done...
-"
-"2","nazwy wierszy zosta³y znalezione z krótkiej zmiennej i zosta³y odrzucone"
-"0","kable(or)"

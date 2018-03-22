@@ -1,5 +1,0 @@
-"0","load(file = ""dane.Rda"")"
-"0","legal <-"
-"0","  subset.data.frame(dane, subset = dane$nielegal_ogol == 0) #subset NIEsiegajacych po nielegalne substancje"
-"0","nielegal <-"
-"0","  subset.data.frame(dane, subset = dane$nielegal_ogol == 1) #subset siegajacych po nielegalne substancje"
