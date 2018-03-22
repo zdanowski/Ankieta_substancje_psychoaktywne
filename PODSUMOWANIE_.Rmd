@@ -2,7 +2,9 @@
 title: "PODSUMOWANIE"
 author: "Szymon Zdanowski"
 date: "21 marca 2018"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 ```{r include=FALSE}
 library(knitr, quietly = TRUE) 

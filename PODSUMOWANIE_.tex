@@ -1,0 +1,627 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={PODSUMOWANIE},
+            pdfauthor={Szymon Zdanowski},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{PODSUMOWANIE}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{Szymon Zdanowski}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{21 marca 2018}
+
+
+\begin{document}
+\maketitle
+
+\subparagraph{W SKRÓCIE}\label{w-skrocie}
+
+Analizy zmiennych ilościowych dokonano za pomocą testu U Manna-Whitneya
+oraz testu Chi Kwadrat. Analizy zmiennych binarnych dokonano za pomocą
+testu Chi Kwadrat. Przyjęty poziom istotności - α = 0,05. Szczegółowy
+opis zmiennych można znaleźć pod poniższym linkiem.
+
+\paragraph{\texorpdfstring{\href{http://htmlpreview.github.io/?https://github.com/zdanowski/Ankieta_substancje_psychoaktywne/blob/master/OPIS_ZMIENNYCH.html}{\textgreater{}\textgreater{}SZCZEGÓŁOWY
+OPIS
+ZMIENNYCH\textless{}\textless{}}}{\textgreater{}\textgreater{}SZCZEGÓŁOWY OPIS ZMIENNYCH\textless{}\textless{}}}\label{szczegoowy-opis-zmiennych}
+
+\subsection{1. Zmienne ilościowe}\label{zmienne-ilosciowe}
+
+Użyto testu U manna-whitneya (wilcoxona), ponieważ zmienne te nie mają
+rozkładu normalnego (ciężko żeby miały przy 5 wartośćiach). Między
+osobami sięgającymi po substancje nielegalne a niesięgającymiu dokonano
+porównania w odpowiedzi na pytania:
+
+W jakim stopniu zgadzasz się ze stwierdzeniem: ``Ktoś usilnie namawiał
+mnie do pójścia na studia/wybrania tego kierunku.'' = mienna
+\textbf{Namawianie}
+
+W jakim stopniu zgadzasz się ze stwierdzeniem: ``Moje studia są ciekawe
+i intersujące.''? = zmienna \textbf{Ciekawe}
+
+Przypisano odpowiednie zakresy danych.
+
+legal = grupa nieużywająca substancji nielegalnych podczas nauki
+
+nielegal = grupa używająca substancji nielegalnych podczas nauki
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{load}\NormalTok{(}\DataTypeTok{file =} \StringTok{"dane.Rda"}\NormalTok{)}
+\NormalTok{legal <-}
+\StringTok{  }\KeywordTok{subset.data.frame}\NormalTok{(dane, }\DataTypeTok{subset =}\NormalTok{ dane}\OperatorTok{$}\NormalTok{nielegal_ogol }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{) }\CommentTok{#subset NIEsiegajacych po nielegalne substancje}
+\NormalTok{nielegal <-}
+\StringTok{  }\KeywordTok{subset.data.frame}\NormalTok{(dane, }\DataTypeTok{subset =}\NormalTok{ dane}\OperatorTok{$}\NormalTok{nielegal_ogol }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{) }\CommentTok{#subset siegajacych po nielegalne substancje}
+\end{Highlighting}
+\end{Shaded}
+
+\paragraph{Pytanie pierwsze}\label{pytanie-pierwsze}
+
+H0 - nie ma istonej różnicy między grupami H1 - istnieje statystycznei
+istotna różnica między grupami
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{wilcox.test}\NormalTok{(legal}\OperatorTok{$}\NormalTok{Namawianie, nielegal}\OperatorTok{$}\NormalTok{Namawianie)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  legal$Namawianie and nielegal$Namawianie
+## W = 17010, p-value = 0.01582
+## alternative hypothesis: true location shift is not equal to 0
+\end{verbatim}
+
+p-value = 0.01582, p \textgreater{}0.05 H0 odrzucona Zatem istnieje
+istona statystycznie różnica między grupami.
+
+Średnia odpowiedź w grupie nielegal 2.3392857\\
+Średnia odpowiedź w grupie legal 1.8328804 Zatem grupa nielegal uzyskała
+istonie wyższy wynik. \textbf{Wiem, że porównuje zmienne o rozkładzie
+innym niż normalny ale co mam zrobić jeżeli mediany są tanie same?}
+
+\paragraph{Pytanie drugie}\label{pytanie-drugie}
+
+H0 - nie ma istonej różnicy między grupami H1 - istnieje statystycznei
+istotna różnica między grupami
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{wilcox.test}\NormalTok{(legal}\OperatorTok{$}\NormalTok{Ciekawe, nielegal}\OperatorTok{$}\NormalTok{Ciekawe)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  legal$Ciekawe and nielegal$Ciekawe
+## W = 23814, p-value = 0.03942
+## alternative hypothesis: true location shift is not equal to 0
+\end{verbatim}
+
+p-value = 0.03942, p \textgreater{}0.05 H0 odrzucona Zatem istnieje
+istona statystycznie różnica między grupami.
+
+Średnia odpowiedź w grupie nielegal 3.6785714\\
+Średnia odpowiedź w grupie legal 4.0557065 Zatem grupa legal uzyskała
+istonie wyższy wynik. \textbf{Wiem, że porównuje zmienne o rozkładzie
+innym niż normalny ale co mam zrobić jeżeli mediany są tanie same?}
+
+\subsubsection{Porównanie wieku miedzy
+grupami}\label{porownanie-wieku-miedzy-grupami}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{wilcox.test}\NormalTok{(legal}\OperatorTok{$}\NormalTok{Wiek, nielegal}\OperatorTok{$}\NormalTok{Wiek)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  legal$Wiek and nielegal$Wiek
+## W = 20240, p-value = 0.8214
+## alternative hypothesis: true location shift is not equal to 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{wilcox.test}\NormalTok{(legal}\OperatorTok{$}\NormalTok{rok, nielegal}\OperatorTok{$}\NormalTok{rok) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  legal$rok and nielegal$rok
+## W = 22659, p-value = 0.2033
+## alternative hypothesis: true location shift is not equal to 0
+\end{verbatim}
+
+W obydwu przypadkach p \textgreater{} 0.5, ZATEM brak różnic pod tym
+względem.
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\subsection{2. Zmienne binarne oraz ilościowe - Test Chi
+Kwadrat}\label{zmienne-binarne-oraz-ilosciowe---test-chi-kwadrat}
+
+Analizuję tu zależność między zmiennymi różnymi zmiennymi binarnymi
+(Oprócz ``Wiek'' ``Namawianie'' i ``Ciekawe'' które są w skali likerta)
+a zmienną ``nielegal\_ogol''.
+\href{http://htmlpreview.github.io/?https://github.com/zdanowski/Ankieta_substancje_psychoaktywne/blob/master/OPIS_ZMIENNYCH.html}{\textgreater{}\textgreater{}SZCZEGÓŁOWY
+OPIS ZMIENNYCH\textless{}\textless{}}
+
+\paragraph{\texorpdfstring{\textbf{Pytanie}: czemu w przypadku
+niektórych zmiennych wyskakuje
+komunikat}{Pytanie: czemu w przypadku niektórych zmiennych wyskakuje komunikat}}\label{pytanie-czemu-w-przypadku-niektorych-zmiennych-wyskakuje-komunikat}
+
+\begin{quote}
+``In chisq.test(tab) : Chi-squared approximation may be incorrect''?
+\end{quote}
+
+Te same dane wporwadzone do statistici dają takie same wyniki, ale bez
+komunikatu o błędzie.**
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{istotnenumer <-}\StringTok{ }\KeywordTok{c}\NormalTok{()}
+\NormalTok{istotnenazwa <-}\StringTok{ }\KeywordTok{c}\NormalTok{()}
+\KeywordTok{options}\NormalTok{(}\DataTypeTok{warn=}\OperatorTok{-}\DecValTok{1}\NormalTok{)}
+\NormalTok{v <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{16}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in}\NormalTok{ v) \{}
+\NormalTok{  n <-}\StringTok{ }\KeywordTok{as.vector}\NormalTok{(}\KeywordTok{t}\NormalTok{(dane[i]))}
+  \KeywordTok{print}\NormalTok{(}\KeywordTok{paste}\NormalTok{(i, }\StringTok{"-"}\NormalTok{, }\KeywordTok{names}\NormalTok{(dane[i]), }\StringTok{" a nielegal_ogol"}\NormalTok{))}
+  
+\NormalTok{  tab <-}\StringTok{ }\KeywordTok{table}\NormalTok{(n, dane}\OperatorTok{$}\NormalTok{nielegal_ogol)}
+\NormalTok{  chi <-}\StringTok{ }\KeywordTok{chisq.test}\NormalTok{(tab)}
+  \KeywordTok{print}\NormalTok{(chi)}
+\NormalTok{  p <-}\StringTok{ }\NormalTok{chi}\OperatorTok{$}\NormalTok{p.value}
+  \ControlFlowTok{if}\NormalTok{ (p }\OperatorTok{<}\StringTok{ }\FloatTok{0.05}\NormalTok{) \{}
+    \KeywordTok{print}\NormalTok{(}
+      \StringTok{" p < 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"}\NormalTok{,}
+      \DataTypeTok{quote =} \OtherTok{FALSE}
+\NormalTok{    )}
+\NormalTok{    istotnenumer <-}
+\StringTok{      }\KeywordTok{c}\NormalTok{(istotnenumer, i) }\CommentTok{#Tworzy wektor z numerami kolumn(zmiennych) dla których p < 0.5}
+\NormalTok{    istotnenazwa <-}
+\StringTok{      }\KeywordTok{c}\NormalTok{(istotnenazwa, }\KeywordTok{names}\NormalTok{(dane[i])) }\CommentTok{#Tworzy wektor z nazwami kolumn(zmiennych) dla których p < 0.5}
+\NormalTok{  \}}
+  \KeywordTok{print}\NormalTok{(}
+    \StringTok{"_______________________________________________________________________________"}
+\NormalTok{    ,}
+    \DataTypeTok{quote =} \OtherTok{FALSE}
+\NormalTok{  ) }\CommentTok{#może da się to inaczej zrobić?}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "2 - Wiek  a nielegal_ogol"
+## 
+##  Pearson's Chi-squared test
+## 
+## data:  tab
+## X-squared = 32.819, df = 18, p-value = 0.01755
+## 
+## [1]  p < 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1] _______________________________________________________________________________
+## [1] "3 - M=0/K=1  a nielegal_ogol"
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  tab
+## X-squared = 7.2575, df = 1, p-value = 0.007061
+## 
+## [1]  p < 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1] _______________________________________________________________________________
+## [1] "6 - rok  a nielegal_ogol"
+## 
+##  Pearson's Chi-squared test
+## 
+## data:  tab
+## X-squared = 5.8335, df = 5, p-value = 0.3228
+## 
+## [1] _______________________________________________________________________________
+## [1] "7 - Namawianie  a nielegal_ogol"
+## 
+##  Pearson's Chi-squared test
+## 
+## data:  tab
+## X-squared = 14.827, df = 4, p-value = 0.005075
+## 
+## [1]  p < 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1] _______________________________________________________________________________
+## [1] "8 - Ciekawe  a nielegal_ogol"
+## 
+##  Pearson's Chi-squared test
+## 
+## data:  tab
+## X-squared = 14.187, df = 4, p-value = 0.006722
+## 
+## [1]  p < 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1] _______________________________________________________________________________
+## [1] "10 - Medycyna  a nielegal_ogol"
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  tab
+## X-squared = 1.1871, df = 1, p-value = 0.2759
+## 
+## [1] _______________________________________________________________________________
+## [1] "11 - Kierunek_medyczny  a nielegal_ogol"
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  tab
+## X-squared = 6.1233, df = 1, p-value = 0.01334
+## 
+## [1]  p < 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1] _______________________________________________________________________________
+## [1] "12 - Kofeina  a nielegal_ogol"
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  tab
+## X-squared = 7.0656, df = 1, p-value = 0.007858
+## 
+## [1]  p < 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1] _______________________________________________________________________________
+## [1] "13 - Nikotyna  a nielegal_ogol"
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  tab
+## X-squared = 74.794, df = 1, p-value < 2.2e-16
+## 
+## [1]  p < 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1] _______________________________________________________________________________
+## [1] "14 - alkohol  a nielegal_ogol"
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  tab
+## X-squared = 69.001, df = 1, p-value < 2.2e-16
+## 
+## [1]  p < 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1] _______________________________________________________________________________
+## [1] "15 - napoje_energertyzujące  a nielegal_ogol"
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  tab
+## X-squared = 10.009, df = 1, p-value = 0.001557
+## 
+## [1]  p < 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1] _______________________________________________________________________________
+## [1] "16 - dopalacze  a nielegal_ogol"
+## 
+##  Pearson's Chi-squared test with Yates' continuity correction
+## 
+## data:  tab
+## X-squared = 67.678, df = 1, p-value < 2.2e-16
+## 
+## [1]  p < 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1] _______________________________________________________________________________
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{options}\NormalTok{(}\DataTypeTok{warn=}\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Zmienne (i ich numery kolumn) dla których w teście chisquare p
+\textless{} 0.05
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{kolumny <-}\StringTok{ }\NormalTok{istotnenazwa}
+\NormalTok{numeracja <-}\StringTok{ }\NormalTok{istotnenumer}
+
+\NormalTok{Tabelka <-}\KeywordTok{data.frame}\NormalTok{(kolumny, numeracja)}
+\NormalTok{Tabelka <-}\StringTok{ }\KeywordTok{t}\NormalTok{(Tabelka)}
+\KeywordTok{kable}\NormalTok{(Tabelka)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{longtable}[]{@{}lllllllllll@{}}
+\toprule
+kolumny & Wiek & M=0/K=1 & Namawianie & Ciekawe & Kierunek\_medyczny &
+Kofeina & Nikotyna & alkohol & napoje\_energertyzujące &
+dopalacze\tabularnewline
+numeracja & 2 & 3 & 7 & 8 & 11 & 12 & 13 & 14 & 15 & 16\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{remove}\NormalTok{(kolumny)}
+\KeywordTok{remove}\NormalTok{(numeracja)}
+\KeywordTok{remove}\NormalTok{(Tabelka)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{3. Regresja logistyczna}\label{regresja-logistyczna}
+
+Za radą Dr.~Bandurskiego postanowiłem poddać te zmienne dla których p w
+Chi kwadrat \textgreater{} 0.05 regresji logistycznej ( funkcja glm() ).
+\textbf{Co Pan o tym myśli?}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{modelowyframe <-}\StringTok{ }\KeywordTok{c}\NormalTok{(istotnenumer, }\DecValTok{24}\NormalTok{) }\CommentTok{#dodaje do wektora numer kolumny zmiennej zależnej (nielegal_ogol), żeby potem znalazło się w danelog}
+\NormalTok{danelog <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(dane, }\DataTypeTok{select =} \KeywordTok{c}\NormalTok{(modelowyframe))}
+
+\NormalTok{model <-}
+\StringTok{  }\KeywordTok{glm}\NormalTok{(nielegal_ogol }\OperatorTok{~}\StringTok{ }\NormalTok{.,}
+      \DataTypeTok{family =} \KeywordTok{binomial}\NormalTok{(}\DataTypeTok{link =} \StringTok{'logit'}\NormalTok{),}
+      \DataTypeTok{data =}\NormalTok{ danelog)}
+
+\KeywordTok{summary}\NormalTok{(model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = nielegal_ogol ~ ., family = binomial(link = "logit"), 
+##     data = danelog)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.5444  -0.3208  -0.1855  -0.1397   3.0890  
+## 
+## Coefficients:
+##                        Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)            -3.35954    1.56791  -2.143  0.03214 *  
+## Wiek                   -0.00628    0.06527  -0.096  0.92335    
+## `M=0/K=1`              -0.14933    0.34115  -0.438  0.66158    
+## Namawianie              0.08983    0.12435   0.722  0.47003    
+## Ciekawe                -0.18097    0.14957  -1.210  0.22629    
+## Kierunek_medyczny      -0.74558    0.33389  -2.233  0.02555 *  
+## Kofeina                 0.40252    0.52093   0.773  0.43971    
+## Nikotyna                1.74012    0.37673   4.619 3.86e-06 ***
+## alkohol                 1.45237    0.34362   4.227 2.37e-05 ***
+## napoje_energertyzujące  0.02396    0.38372   0.062  0.95021    
+## dopalacze               3.16188    1.11219   2.843  0.00447 ** 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 404.66  on 791  degrees of freedom
+## Residual deviance: 286.46  on 781  degrees of freedom
+## AIC: 308.46
+## 
+## Number of Fisher Scoring iterations: 6
+\end{verbatim}
+
+\subsubsection{Zatem gdy brać pod uwagę wszytkie zmienne to jedynie
+alkohol, nikotyna i dopalacze są istotnymi statystycznie predyktorami
+(pozytywnie przewdującymi zmienną zależną). Natomiast gdyby wykluczyć je
+z
+modelu:}\label{zatem-gdy-brac-pod-uwage-wszytkie-zmienne-to-jedynie-alkohol-nikotyna-i-dopalacze-sa-istotnymi-statystycznie-predyktorami-pozytywnie-przewdujacymi-zmienna-zalezna.-natomiast-gdyby-wykluczyc-je-z-modelu}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nikotyna_alkohol <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{13}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{16}\NormalTok{) }\CommentTok{#tworze wektor z numerami kolumn alkoholu, nikotyny i dopalaczy to }
+
+\NormalTok{istotnenumer <-}\StringTok{ }\KeywordTok{setdiff}\NormalTok{(istotnenumer, nikotyna_alkohol) }\CommentTok{#odejmuje go od numerów zmniennych które wrzucę do glm()}
+
+\NormalTok{modelowyframe <-}\StringTok{ }\KeywordTok{c}\NormalTok{(istotnenumer, }\DecValTok{24}\NormalTok{) }\CommentTok{#dodaje do wektora numer kolumny zmiennej zależnej (nielegal_ogol), żeby potem znalazło się w danelog}
+\NormalTok{danelog <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(dane, }\DataTypeTok{select =} \KeywordTok{c}\NormalTok{(modelowyframe))}
+
+\NormalTok{model <-}
+\StringTok{  }\KeywordTok{glm}\NormalTok{(nielegal_ogol }\OperatorTok{~}\StringTok{ }\NormalTok{.,}
+      \DataTypeTok{family =} \KeywordTok{binomial}\NormalTok{(}\DataTypeTok{link =} \StringTok{'logit'}\NormalTok{),}
+      \DataTypeTok{data =}\NormalTok{ danelog)}
+
+\KeywordTok{summary}\NormalTok{(model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## glm(formula = nielegal_ogol ~ ., family = binomial(link = "logit"), 
+##     data = danelog)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -1.1107  -0.4170  -0.2962  -0.2023   2.8406  
+## 
+## Coefficients:
+##                        Estimate Std. Error z value Pr(>|z|)    
+## (Intercept)            -4.27529    1.29075  -3.312 0.000925 ***
+## Wiek                    0.06841    0.05003   1.367 0.171541    
+## `M=0/K=1`              -0.69874    0.29745  -2.349 0.018818 *  
+## Namawianie              0.25633    0.10960   2.339 0.019347 *  
+## Ciekawe                -0.19956    0.14016  -1.424 0.154514    
+## Kierunek_medyczny      -0.87335    0.30264  -2.886 0.003905 ** 
+## Kofeina                 1.03636    0.46300   2.238 0.025197 *  
+## napoje_energertyzujące  0.74920    0.33596   2.230 0.025748 *  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 404.66  on 791  degrees of freedom
+## Residual deviance: 360.90  on 784  degrees of freedom
+## AIC: 376.9
+## 
+## Number of Fisher Scoring iterations: 6
+\end{verbatim}
+
+\subsection{\texorpdfstring{Okazuje się że kierunek medyczny jest
+najsilnie niezależnym predyktorem jest studiowanie na kierunku medyczny,
+a co najważniejsze \textbf{przewiduje on negatywnie} zmienną
+niezależną.}{Okazuje się że kierunek medyczny jest najsilnie niezależnym predyktorem jest studiowanie na kierunku medyczny, a co najważniejsze przewiduje on negatywnie zmienną niezależną.}}\label{okazuje-sie-ze-kierunek-medyczny-jest-najsilnie-niezaleznym-predyktorem-jest-studiowanie-na-kierunku-medyczny-a-co-najwazniejsze-przewiduje-on-negatywnie-zmienna-niezalezna.}
+
+Odds Ratio i odpowiednie przedziały ufności wyglądają następująco:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{t}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{exp}\NormalTok{(}\KeywordTok{coef}\NormalTok{(model, ))))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                    (Intercept)   Wiek `M=0/K=1` Namawianie   Ciekawe
+## exp.coef.model....  0.01390801 1.0708 0.4972094   1.292185 0.8190941
+##                    Kierunek_medyczny  Kofeina napoje_energertyzujące
+## exp.coef.model....         0.4175487 2.818946               2.115303
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{t}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\KeywordTok{confint}\NormalTok{(model, }\DataTypeTok{level =} \FloatTok{0.95}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Waiting for profiling to be done...
+\end{verbatim}
+
+\begin{verbatim}
+##         (Intercept)        Wiek  `M=0/K=1` Namawianie     Ciekawe
+## X2.5..    -6.811164 -0.03852729 -1.2766420 0.03725722 -0.47150021
+## X97.5..   -1.679338  0.16046498 -0.1052682 0.46861625  0.07956532
+##         Kierunek_medyczny   Kofeina napoje_energertyzujące
+## X2.5..         -1.4824720 0.1981358              0.1128917
+## X97.5..        -0.2901808 2.0426769              1.4387367
+\end{verbatim}
+
+\section{Odważne wnioski:}\label{odwazne-wnioski}
+
+\subsection{\texorpdfstring{\textbf{W badanej grupie fakt bycia na
+studiach medycznych był samodzielnym (negatywnym) predyktorem używania
+substancji
+nielegalnych.}}{W badanej grupie fakt bycia na studiach medycznych był samodzielnym (negatywnym) predyktorem używania substancji nielegalnych.}}\label{w-badanej-grupie-fakt-bycia-na-studiach-medycznych-by-samodzielnym-negatywnym-predyktorem-uzywania-substancji-nielegalnych.}
+
+\subsubsection{\texorpdfstring{Płeć męska oraz wieksze `deklarowane
+bycie namawianym do studiowania' były poztywnymi
+predyktorami.}{Płeć męska oraz wieksze deklarowane bycie namawianym do studiowania były poztywnymi predyktorami.}}\label{pec-meska-oraz-wieksze-deklarowane-bycie-namawianym-do-studiowania-byy-poztywnymi-predyktorami.}
+
+
+\end{document}
