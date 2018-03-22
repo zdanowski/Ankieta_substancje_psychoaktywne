@@ -4,6 +4,7 @@ author: "Szymon Zdanowski"
 date: "21 marca 2018"
 output:
   html_document: default
+  word_document: default
   pdf_document: default
 ---
 ```{r include=FALSE}
@@ -12,7 +13,8 @@ library(ggplot2)
 library(fortunes)
 ```
 ##### W SKRÓCIE
-###### Analizy zmiennych ilościowych dokonano za pomocą testu U Manna-Whitneya oraz testu Chi Kwadrat. Analizy zmiennych binarnych dokonano za pomocą testu Chi Kwadrat. Przyjęty poziom istotności -  α = 0,05. Szczegółowy opis zmiennych można znaleźć pod poniższym linkiem.
+###### W ankiecie wzieły udział **792 osoby**. W tym 416 studentów kierunków medycznych i  376 studentów kierunków niemedycznych. `r (593/792)*100`% z osób biorących udział w badaniu było kobietami.  
+######Analizy zmiennych ilościowych dokonano za pomocą testu U Manna-Whitneya oraz testu Chi Kwadrat. Analizy zmiennych binarnych dokonano za pomocą testu Chi Kwadrat. Przyjęty poziom istotności -  α = 0,05. Szczegółowy opis zmiennych można znaleźć pod poniższym linkiem.
   
 ####[>>SZCZEGÓŁOWY OPIS ZMIENNYCH<<](http://htmlpreview.github.io/?https://github.com/zdanowski/Ankieta_substancje_psychoaktywne/blob/master/OPIS_ZMIENNYCH.html)
 
