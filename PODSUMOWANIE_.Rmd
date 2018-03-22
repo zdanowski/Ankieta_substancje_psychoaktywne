@@ -204,5 +204,6 @@ t(data.frame(confint(model, level = 0.95)))
 
 
 
-# Odważny wniosek:  
-##**Studenci na kierunkach medycznych ćpają mniej.**
+# Odważne wnioski:  
+##**W badanej grupie fakt bycia na studiach medycznych był samodzielnym (negatywnym) predyktorem używania substancji nielegalnych.**
+### Płeć męska oraz wieksze 'deklarowane bycie namawianym do studiowania' były poztywnymi predyktorami. 
