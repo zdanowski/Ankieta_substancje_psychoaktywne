@@ -1,6 +1,0 @@
-"0","kolumny <- colnames(dane)"
-"0","numeracja <- c(1:24)"
-"0","Tabelka <-data.frame(kolumny[1:9], numeracja[1:9])"
-"0","kable(t(Tabelka))"
-"2","Error in kable(t(Tabelka)) : could not find function ""kable""
-"

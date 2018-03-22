@@ -127,8 +127,8 @@ $(document).ready(function () {
 
 <div id="w-skrocie" class="section level5">
 <h5>W SKRÓCIE</h5>
-<div id="w-ankiecie-wziey-udzia-792-osoby.-w-tym-416-studentow-kierunkow-medycznych-i-376-studentow-kierunkow-niemedycznych.-74.8737374-z-osob-bioracych-udzia-w-badaniu-byo-kobietami." class="section level6">
-<h6>W ankiecie wzieły udział <strong>792 osoby</strong>. W tym 416 studentów kierunków medycznych i 376 studentów kierunków niemedycznych. 74.8737374% z osób biorących udział w badaniu było kobietami.</h6>
+<div id="w-ankiecie-wziey-udzia-792-osoby.-w-tym-416-studentow-kierunkow-medycznych-i-376-studentow-kierunkow-niemedycznych.-74.87-593-respondentow-byo-kobietami." class="section level6">
+<h6>W ankiecie wzieły udział <strong>792 osoby</strong>. W tym 416 studentów kierunków medycznych i 376 studentów kierunków niemedycznych. 74.87% (593) respondentów było kobietami.</h6>
 </div>
 <div id="analizy-zmiennych-ilosciowych-dokonano-za-pomoca-testu-u-manna-whitneya-oraz-testu-chi-kwadrat.-analizy-zmiennych-binarnych-dokonano-za-pomoca-testu-chi-kwadrat.-przyjety-poziom-istotnosci---alfa-005.-szczegoowy-opis-zmiennych-mozna-znalezc-pod-ponizszym-linkiem." class="section level6">
 <h6>Analizy zmiennych ilościowych dokonano za pomocą testu U Manna-Whitneya oraz testu Chi Kwadrat. Analizy zmiennych binarnych dokonano za pomocą testu Chi Kwadrat. Przyjęty poziom istotności - alfa = 0,05. Szczegółowy opis zmiennych można znaleźć pod poniższym linkiem.</h6>
@@ -220,76 +220,24 @@ nielegal &lt;-
 </div>
 <div id="przypomnienie-numeracji-kolumn-w-dane.rda" class="section level4">
 <h4>Przypomnienie numeracji kolumn w dane.Rda</h4>
-<table>
-<tbody>
-<tr class="odd">
-<td align="left">kolumny.1.9.</td>
-<td align="left">lp</td>
-<td align="left">Wiek</td>
-<td align="left">M=0/K=1</td>
-<td align="left">Student</td>
-<td align="left">Kierunek</td>
-<td align="left">rok</td>
-<td align="left">Namawianie</td>
-<td align="left">Ciekawe</td>
-<td align="left">Substancje</td>
-</tr>
-<tr class="even">
-<td align="left">numeracja.1.9.</td>
-<td align="left">1</td>
-<td align="left">2</td>
-<td align="left">3</td>
-<td align="left">4</td>
-<td align="left">5</td>
-<td align="left">6</td>
-<td align="left">7</td>
-<td align="left">8</td>
-<td align="left">9</td>
-</tr>
-</tbody>
-</table>
-<table>
-<tbody>
-<tr class="odd">
-<td align="left">kolumny.10.15.</td>
-<td align="left">Medycyna</td>
-<td align="left">Kierunek_medyczny</td>
-<td align="left">Kofeina</td>
-<td align="left">Nikotyna</td>
-<td align="left">alkohol</td>
-<td align="left">napoje_energertyzujące</td>
-</tr>
-<tr class="even">
-<td align="left">numeracja.10.15.</td>
-<td align="left">10</td>
-<td align="left">11</td>
-<td align="left">12</td>
-<td align="left">13</td>
-<td align="left">14</td>
-<td align="left">15</td>
-</tr>
-</tbody>
-</table>
-<table>
-<tbody>
-<tr class="odd">
-<td align="left">kolumny.16.20.</td>
-<td align="left">dopalacze</td>
-<td align="left">amfetamina</td>
-<td align="left">kokaina</td>
-<td align="left">marihuana/haszysz</td>
-<td align="left">srod_uspok_niezap_przez_lek</td>
-</tr>
-<tr class="even">
-<td align="left">numeracja.16.20.</td>
-<td align="left">16</td>
-<td align="left">17</td>
-<td align="left">18</td>
-<td align="left">19</td>
-<td align="left">20</td>
-</tr>
-</tbody>
-</table>
+<pre><code>##                [,1] [,2]   [,3]      [,4]      [,5]       [,6] 
+## kolumny.1.9.   &quot;lp&quot; &quot;Wiek&quot; &quot;M=0/K=1&quot; &quot;Student&quot; &quot;Kierunek&quot; &quot;rok&quot;
+## numeracja.1.9. &quot;1&quot;  &quot;2&quot;    &quot;3&quot;       &quot;4&quot;       &quot;5&quot;        &quot;6&quot;  
+##                [,7]         [,8]      [,9]        
+## kolumny.1.9.   &quot;Namawianie&quot; &quot;Ciekawe&quot; &quot;Substancje&quot;
+## numeracja.1.9. &quot;7&quot;          &quot;8&quot;       &quot;9&quot;</code></pre>
+<pre><code>##                  [,1]       [,2]                [,3]      [,4]      
+## kolumny.10.15.   &quot;Medycyna&quot; &quot;Kierunek_medyczny&quot; &quot;Kofeina&quot; &quot;Nikotyna&quot;
+## numeracja.10.15. &quot;10&quot;       &quot;11&quot;                &quot;12&quot;      &quot;13&quot;      
+##                  [,5]      [,6]                    
+## kolumny.10.15.   &quot;alkohol&quot; &quot;napoje_energertyzujące&quot;
+## numeracja.10.15. &quot;14&quot;      &quot;15&quot;</code></pre>
+<pre><code>##                  [,1]        [,2]         [,3]      [,4]               
+## kolumny.16.20.   &quot;dopalacze&quot; &quot;amfetamina&quot; &quot;kokaina&quot; &quot;marihuana/haszysz&quot;
+## numeracja.16.20. &quot;16&quot;        &quot;17&quot;         &quot;18&quot;      &quot;19&quot;               
+##                  [,5]                         
+## kolumny.16.20.   &quot;srod_uspok_niezap_przez_lek&quot;
+## numeracja.16.20. &quot;20&quot;</code></pre>
 <pre class="r"><code>istotnenumer &lt;- c()
 istotnenazwa &lt;- c()
 options(warn=-1)
@@ -425,46 +373,24 @@ for (i in v) {
 ## [1] _______________________________________________________________________________</code></pre>
 <pre class="r"><code>options(warn=0)</code></pre>
 <p>Zmienne (i ich numery kolumn) dla których w teście chisquare p &lt; 0.05</p>
-<table>
-<tbody>
-<tr class="odd">
-<td align="left">kolumny.1.5.</td>
-<td align="left">Wiek</td>
-<td align="left">M=0/K=1</td>
-<td align="left">Namawianie</td>
-<td align="left">Ciekawe</td>
-<td align="left">Kierunek_medyczny</td>
-</tr>
-<tr class="even">
-<td align="left">numeracja.1.5.</td>
-<td align="left">2</td>
-<td align="left">3</td>
-<td align="left">7</td>
-<td align="left">8</td>
-<td align="left">11</td>
-</tr>
-</tbody>
-</table>
-<table>
-<tbody>
-<tr class="odd">
-<td align="left">kolumny.6.10.</td>
-<td align="left">Kofeina</td>
-<td align="left">Nikotyna</td>
-<td align="left">alkohol</td>
-<td align="left">napoje_energertyzujące</td>
-<td align="left">dopalacze</td>
-</tr>
-<tr class="even">
-<td align="left">numeracja.6.10.</td>
-<td align="left">12</td>
-<td align="left">13</td>
-<td align="left">14</td>
-<td align="left">15</td>
-<td align="left">16</td>
-</tr>
-</tbody>
-</table>
+<pre><code>## function (x, as.factor = FALSE) 
+## {
+##     if (as.factor) {
+##         labs &lt;- colnames(x, do.NULL = FALSE, prefix = &quot;&quot;)
+##         res &lt;- factor(.Internal(col(dim(x))), labels = labs)
+##         dim(res) &lt;- dim(x)
+##         res
+##     }
+##     else .Internal(col(dim(x)))
+## }
+## &lt;bytecode: 0x0000000012592a20&gt;
+## &lt;environment: namespace:base&gt;</code></pre>
+<pre><code>##      [,1]   [,2]      [,3]         [,4]      [,5]               
+## [1,] &quot;Wiek&quot; &quot;M=0/K=1&quot; &quot;Namawianie&quot; &quot;Ciekawe&quot; &quot;Kierunek_medyczny&quot;
+## [2,] &quot; 2&quot;   &quot; 3&quot;      &quot; 7&quot;         &quot; 8&quot;      &quot;11&quot;</code></pre>
+<pre><code>##      [,1]      [,2]       [,3]      [,4]                     [,5]       
+## [1,] &quot;Kofeina&quot; &quot;Nikotyna&quot; &quot;alkohol&quot; &quot;napoje_energertyzujące&quot; &quot;dopalacze&quot;
+## [2,] &quot;12&quot;      &quot;13&quot;       &quot;14&quot;      &quot;15&quot;                     &quot;16&quot;</code></pre>
 </div>
 </div>
 <div id="regresja-logistyczna" class="section level2">
