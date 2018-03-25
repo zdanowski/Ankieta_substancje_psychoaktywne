@@ -3,15 +3,16 @@ title: "PODSUMOWANIE"
 author: "Szymon Zdanowski"
 date: "21 marca 2018"
 output:
-  pdf_document: default
-  word_document: default
   html_document: default
+  word_document: default
+  pdf_document: default
 ---
 ```{r include=FALSE}
 library(knitr, quietly = TRUE) 
 library(ggplot2) 
 library(fortunes)
 library(kableExtra)
+library(dbplyr)
 ```
 ##### W SKRÓCIE
 ###### W ankiecie wzieły udział **792 osoby**. W tym 416 studentów kierunków medycznych i  376 studentów kierunków niemedycznych. `r round(((593/792)*100), 2)`% (593) respondentów było kobietami.  
@@ -33,9 +34,11 @@ Użyto testu U manna-whitneya (wilcoxona), ponieważ zmienne te nie mają rozkł
 ```{r}
 load(file = "dane.Rda")
 legal <-
-  subset.data.frame(dane, subset = dane$nielegal_ogol == 0) #subset NIEsiegajacych po nielegalne substancje
+  subset.data.frame(dane, subset = dane$nielegal_ogol == 0) 
+#subset NIEsiegajacych po nielegalne substancje
 nielegal <-
-  subset.data.frame(dane, subset = dane$nielegal_ogol == 1) #subset siegajacych po nielegalne substancje
+  subset.data.frame(dane, subset = dane$nielegal_ogol == 1) 
+#subset siegajacych po nielegalne substancje
 ```
   
     
@@ -81,7 +84,18 @@ wilcox.test(legal$rok, nielegal$rok)
 W obydwu przypadkach p > 0.5, ZATEM brak różnic pod tym względem. 
   
   
+Porównanie rozkładu płci:
+```{r echo=FALSE}
+a <-
+  (nrow(subset(legal, legal$`M=0/K=1` == 1)) / nrow(legal)) %>% round(4)
+  print(paste(a * 100, " % Kobiet w grupie legal"))
   
+a <-
+  (nrow(subset(nielegal, nielegal$`M=0/K=1` == 1)) / nrow(nielegal)) %>% round(4)
+  paste(a*100, " % Kobiet w grupie nielegal") %>% print()
+
+
+```
 ***
   
   
@@ -127,13 +141,15 @@ for (i in v) {
   p <- chi$p.value
   if (p < 0.05) {
     print(
-      " p < 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+      " p < 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
       quote = FALSE
     )
     istotnenumer <-
-      c(istotnenumer, i) #Tworzy wektor z numerami kolumn(zmiennych) dla których p < 0.5
+      c(istotnenumer, i) 
+    #Tworzy wektor z numerami kolumn(zmiennych) dla których p < 0.5
     istotnenazwa <-
-      c(istotnenazwa, names(dane[i])) #Tworzy wektor z nazwami kolumn(zmiennych) dla których p < 0.5
+      c(istotnenazwa, names(dane[i])) 
+    #Tworzy wektor z nazwami kolumn(zmiennych) dla których p < 0.5
   }
   print(
     "_______________________________________________________________________________"

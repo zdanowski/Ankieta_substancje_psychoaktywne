@@ -156,9 +156,11 @@ $(document).ready(function () {
 <h6>nielegal = grupa używająca substancji nielegalnych podczas nauki</h6>
 <pre class="r"><code>load(file = &quot;dane.Rda&quot;)
 legal &lt;-
-  subset.data.frame(dane, subset = dane$nielegal_ogol == 0) #subset NIEsiegajacych po nielegalne substancje
+  subset.data.frame(dane, subset = dane$nielegal_ogol == 0) 
+#subset NIEsiegajacych po nielegalne substancje
 nielegal &lt;-
-  subset.data.frame(dane, subset = dane$nielegal_ogol == 1) #subset siegajacych po nielegalne substancje</code></pre>
+  subset.data.frame(dane, subset = dane$nielegal_ogol == 1) 
+#subset siegajacych po nielegalne substancje</code></pre>
 </div>
 <div id="pytanie-pierwsze" class="section level4">
 <h4>Pytanie pierwsze</h4>
@@ -205,6 +207,9 @@ nielegal &lt;-
 ## W = 22659, p-value = 0.2033
 ## alternative hypothesis: true location shift is not equal to 0</code></pre>
 <p>W obydwu przypadkach p &gt; 0.5, ZATEM brak różnic pod tym względem.</p>
+<p>Porównanie rozkładu płci:</p>
+<pre><code>## [1] &quot;76.09  % Kobiet w grupie legal&quot;</code></pre>
+<pre><code>## [1] &quot;58.93  % Kobiet w grupie nielegal&quot;</code></pre>
 <hr />
 </div>
 </div>
@@ -251,13 +256,15 @@ for (i in v) {
   p &lt;- chi$p.value
   if (p &lt; 0.05) {
     print(
-      &quot; p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&quot;,
+      &quot; p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&quot;,
       quote = FALSE
     )
     istotnenumer &lt;-
-      c(istotnenumer, i) #Tworzy wektor z numerami kolumn(zmiennych) dla których p &lt; 0.5
+      c(istotnenumer, i) 
+    #Tworzy wektor z numerami kolumn(zmiennych) dla których p &lt; 0.5
     istotnenazwa &lt;-
-      c(istotnenazwa, names(dane[i])) #Tworzy wektor z nazwami kolumn(zmiennych) dla których p &lt; 0.5
+      c(istotnenazwa, names(dane[i])) 
+    #Tworzy wektor z nazwami kolumn(zmiennych) dla których p &lt; 0.5
   }
   print(
     &quot;_______________________________________________________________________________&quot;
@@ -272,7 +279,7 @@ for (i in v) {
 ## data:  tab
 ## X-squared = 32.819, df = 18, p-value = 0.01755
 ## 
-## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ## [1] _______________________________________________________________________________
 ## [1] &quot;3 - M=0/K=1  a nielegal_ogol&quot;
 ## 
@@ -281,7 +288,7 @@ for (i in v) {
 ## data:  tab
 ## X-squared = 7.2575, df = 1, p-value = 0.007061
 ## 
-## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ## [1] _______________________________________________________________________________
 ## [1] &quot;6 - rok  a nielegal_ogol&quot;
 ## 
@@ -298,7 +305,7 @@ for (i in v) {
 ## data:  tab
 ## X-squared = 14.827, df = 4, p-value = 0.005075
 ## 
-## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ## [1] _______________________________________________________________________________
 ## [1] &quot;8 - Ciekawe  a nielegal_ogol&quot;
 ## 
@@ -307,7 +314,7 @@ for (i in v) {
 ## data:  tab
 ## X-squared = 14.187, df = 4, p-value = 0.006722
 ## 
-## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ## [1] _______________________________________________________________________________
 ## [1] &quot;10 - Medycyna  a nielegal_ogol&quot;
 ## 
@@ -324,7 +331,7 @@ for (i in v) {
 ## data:  tab
 ## X-squared = 6.1233, df = 1, p-value = 0.01334
 ## 
-## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ## [1] _______________________________________________________________________________
 ## [1] &quot;12 - Kofeina  a nielegal_ogol&quot;
 ## 
@@ -333,7 +340,7 @@ for (i in v) {
 ## data:  tab
 ## X-squared = 7.0656, df = 1, p-value = 0.007858
 ## 
-## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ## [1] _______________________________________________________________________________
 ## [1] &quot;13 - Nikotyna  a nielegal_ogol&quot;
 ## 
@@ -342,7 +349,7 @@ for (i in v) {
 ## data:  tab
 ## X-squared = 74.794, df = 1, p-value &lt; 2.2e-16
 ## 
-## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ## [1] _______________________________________________________________________________
 ## [1] &quot;14 - alkohol  a nielegal_ogol&quot;
 ## 
@@ -351,7 +358,7 @@ for (i in v) {
 ## data:  tab
 ## X-squared = 69.001, df = 1, p-value &lt; 2.2e-16
 ## 
-## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ## [1] _______________________________________________________________________________
 ## [1] &quot;15 - napoje_energertyzujące  a nielegal_ogol&quot;
 ## 
@@ -360,7 +367,7 @@ for (i in v) {
 ## data:  tab
 ## X-squared = 10.009, df = 1, p-value = 0.001557
 ## 
-## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ## [1] _______________________________________________________________________________
 ## [1] &quot;16 - dopalacze  a nielegal_ogol&quot;
 ## 
@@ -369,7 +376,7 @@ for (i in v) {
 ## data:  tab
 ## X-squared = 67.678, df = 1, p-value &lt; 2.2e-16
 ## 
-## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+## [1]  p &lt; 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ## [1] _______________________________________________________________________________</code></pre>
 <pre class="r"><code>options(warn=0)</code></pre>
 <p>Zmienne (i ich numery kolumn) dla których w teście chisquare p &lt; 0.05</p>
@@ -383,7 +390,7 @@ for (i in v) {
 ##     }
 ##     else .Internal(col(dim(x)))
 ## }
-## &lt;bytecode: 0x0000000012592a20&gt;
+## &lt;bytecode: 0x000000000e7eebc8&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <pre><code>##      [,1]   [,2]      [,3]         [,4]      [,5]               
 ## [1,] &quot;Wiek&quot; &quot;M=0/K=1&quot; &quot;Namawianie&quot; &quot;Ciekawe&quot; &quot;Kierunek_medyczny&quot;
