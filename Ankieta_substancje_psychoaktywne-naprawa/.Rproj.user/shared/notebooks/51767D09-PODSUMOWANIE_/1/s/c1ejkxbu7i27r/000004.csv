@@ -1,0 +1,4 @@
+"0","nrow(subset(legal, legal$`M=0/K=1` == 1))/nrow(dane)```
+"
+"2","Error: attempt to use zero-length variable name
+"

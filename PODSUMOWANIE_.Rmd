@@ -1,0 +1,262 @@
+---
+title: "PODSUMOWANIE"
+author: "Szymon Zdanowski"
+date: "21 marca 2018"
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+---
+```{r include=FALSE}
+library(knitr, quietly = TRUE) 
+library(ggplot2) 
+library(fortunes)
+library(kableExtra)
+library(dbplyr)
+```
+##### W SKRÓCIE
+###### W ankiecie wzieły udział **792 osoby**. W tym 416 studentów kierunków medycznych i  376 studentów kierunków niemedycznych. `r round(((593/792)*100), 2)`% (593) respondentów było kobietami.  
+######Analizy zmiennych ilościowych dokonano za pomocą testu U Manna-Whitneya oraz testu Chi Kwadrat. Analizy zmiennych binarnych dokonano za pomocą testu Chi Kwadrat. Przyjęty poziom istotności -  alfa = 0,05. Szczegółowy opis zmiennych można znaleźć pod poniższym linkiem.
+  
+####[>>SZCZEGÓŁOWY OPIS ZMIENNYCH<<](http://htmlpreview.github.io/?https://github.com/zdanowski/Ankieta_substancje_psychoaktywne/blob/master/OPIS_ZMIENNYCH.html)
+
+
+## 1. Zmienne ilościowe
+Użyto testu U manna-whitneya (wilcoxona), ponieważ zmienne te nie mają rozkładu normalnego (ciężko żeby miały przy 5 wartośćiach). Między osobami sięgającymi po substancje nielegalne a niesięgającymiu dokonano porównania w odpowiedzi na pytania:  
+  
+###### W jakim stopniu zgadzasz się ze stwierdzeniem: "Ktoś usilnie namawiał mnie do pójścia na studia/wybrania tego kierunku." = mienna **Namawianie** 
+###### W jakim stopniu zgadzasz się ze stwierdzeniem: "Moje studia są ciekawe i intersujące."? = zmienna **Ciekawe** 
+  
+  
+######Przypisano odpowiednie zakresy danych.
+######legal = grupa nieużywająca substancji nielegalnych podczas nauki  
+######nielegal = grupa używająca substancji nielegalnych podczas nauki
+```{r}
+load(file = "dane.Rda")
+legal <-
+  subset.data.frame(dane, subset = dane$nielegal_ogol == 0) 
+#subset NIEsiegajacych po nielegalne substancje
+nielegal <-
+  subset.data.frame(dane, subset = dane$nielegal_ogol == 1) 
+#subset siegajacych po nielegalne substancje
+```
+  
+    
+    
+####Pytanie pierwsze
+H0 - nie ma istonej różnicy między grupami
+H1 - istnieje statystycznei istotna różnica między grupami
+```{r}
+wilcox.test(legal$Namawianie, nielegal$Namawianie)
+```  
+p-value = 0.01582, p >0.05
+H0 odrzucona
+Zatem istnieje istona statystycznie różnica między grupami. 
+
+Średnia odpowiedź w grupie nielegal `r mean(nielegal$Namawianie)`  
+Średnia odpowiedź w grupie legal `r  mean(legal$Namawianie)`
+Zatem grupa nielegal uzyskała istonie wyższy wynik. 
+**Wiem, że porównuje zmienne o rozkładzie innym niż normalny ale co mam zrobić jeżeli mediany są tanie same?**
+
+####Pytanie drugie
+H0 - nie ma istonej różnicy między grupami
+H1 - istnieje statystycznei istotna różnica między grupami
+```{r}
+wilcox.test(legal$Ciekawe, nielegal$Ciekawe)
+```  
+p-value = 0.03942, p >0.05
+H0 odrzucona
+Zatem istnieje istona statystycznie różnica między grupami. 
+
+
+Średnia odpowiedź w grupie nielegal `r mean(nielegal$Ciekawe)`  
+Średnia odpowiedź w grupie legal `r  mean(legal$Ciekawe)`
+Zatem grupa legal uzyskała istonie wyższy wynik. 
+**Wiem, że porównuje zmienne o rozkładzie innym niż normalny ale co mam zrobić jeżeli mediany są tanie same?**
+  
+  
+  
+###Porównanie wieku miedzy grupami
+```{r}
+wilcox.test(legal$Wiek, nielegal$Wiek)
+wilcox.test(legal$rok, nielegal$rok) 
+```
+W obydwu przypadkach p > 0.5, ZATEM brak różnic pod tym względem. 
+  
+  
+Porównanie rozkładu płci:
+```{r echo=FALSE}
+a <-
+  (nrow(subset(legal, legal$`M=0/K=1` == 1)) / nrow(legal)) %>% round(4)
+  print(paste(a * 100, " % Kobiet w grupie legal"))
+  
+a <-
+  (nrow(subset(nielegal, nielegal$`M=0/K=1` == 1)) / nrow(nielegal)) %>% round(4)
+  paste(a*100, " % Kobiet w grupie nielegal") %>% print()
+
+
+```
+***
+  
+  
+  
+## 2. Zmienne binarne oraz ilościowe - Test Chi Kwadrat
+Analizuję tu zależność między zmiennymi różnymi zmiennymi binarnymi (Oprócz "Wiek" "Namawianie" i "Ciekawe" które są w skali likerta) a zmienną "nielegal_ogol". [>>SZCZEGÓŁOWY OPIS ZMIENNYCH<<](http://htmlpreview.github.io/?https://github.com/zdanowski/Ankieta_substancje_psychoaktywne/blob/master/OPIS_ZMIENNYCH.html)  
+
+####**Pytanie**: czemu w przypadku niektórych zmiennych wyskakuje komunikat
+>"In chisq.test(tab) : Chi-squared approximation may be incorrect"?  
+
+**Te same dane wporwadzone do statistici dają takie same wyniki, ale bez komunikatu o błędzie.**
+
+  
+    
+####Przypomnienie numeracji kolumn w dane.Rda
+```{r setup, echo=FALSE} 
+kolumny <- colnames(dane)
+numeracja <- c(1:24)
+
+Tabelka <-data.frame(kolumny[1:9], numeracja[1:9])
+t(Tabelka)
+Tabelka <-data.frame(kolumny[10:15], numeracja[10:15])
+t(Tabelka)
+Tabelka <-data.frame(kolumny[16:20], numeracja[16:20])
+t(Tabelka)
+
+remove(kolumny)
+remove(numeracja)
+remove(Tabelka)
+```
+
+```{r}
+istotnenumer <- c()
+istotnenazwa <- c()
+options(warn=-1)
+v <- c(2, 3, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16)
+for (i in v) {
+  n <- as.vector(t(dane[i]))
+  print(paste(i, "-", names(dane[i]), " a nielegal_ogol"))
+  tab <- table(n, dane$nielegal_ogol)
+  chi <- chisq.test(tab)
+  print(chi)
+  p <- chi$p.value
+  if (p < 0.05) {
+    print(
+      " p < 0.5 ISTOTNOŚC!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+      quote = FALSE
+    )
+    istotnenumer <-
+      c(istotnenumer, i) 
+    #Tworzy wektor z numerami kolumn(zmiennych) dla których p < 0.5
+    istotnenazwa <-
+      c(istotnenazwa, names(dane[i])) 
+    #Tworzy wektor z nazwami kolumn(zmiennych) dla których p < 0.5
+  }
+  print(
+    "_______________________________________________________________________________"
+    ,
+    quote = FALSE
+  ) #może da się to inaczej zrobić?
+}
+options(warn=0)
+```
+
+    
+  
+Zmienne (i ich numery kolumn) dla których w teście chisquare p < 0.05
+```{r include=FALSE, echo=FALSE}
+kolumny <- istotnenazwa
+numeracja <- istotnenumer
+
+Tabelka <-data.frame(kolumny[1:5], numeracja[1:5])
+Tabelka <- t(Tabelka)
+kable(Tabelka)
+
+Tabelka <-data.frame(kolumny[6:10], numeracja[6:10])
+Tabelka <- t(Tabelka)
+kable(Tabelka)
+
+remove(kolumny)
+remove(numeracja)
+remove(Tabelka)
+```
+```{r echo=FALSE}
+kolumny <- istotnenazwa
+numeracja <- istotnenumer
+col
+Tabelka <-data.frame(kolumny[1:5], numeracja[1:5])
+Tabelka <- t(Tabelka)
+row.names(Tabelka) <- c()
+print(Tabelka)
+
+Tabelka <-data.frame(kolumny[6:10], numeracja[6:10])
+Tabelka <- t(Tabelka)
+row.names(Tabelka) <- c()
+print(Tabelka)
+
+remove(kolumny)
+remove(numeracja)
+remove(Tabelka)
+
+```
+
+##3. Regresja logistyczna
+Za radą Dr. Bandurskiego postanowiłem poddać te zmienne dla których p w Chi kwadrat > 0.05 regresji logistycznej ( funkcja glm() ). **Co Pan o tym myśli?**
+
+
+
+```{r}
+
+modelowyframe <- c(istotnenumer, 24) #dodaje do wektora numer kolumny zmiennej zależnej (nielegal_ogol), żeby potem znalazło się w danelog
+danelog <- subset(dane, select = c(modelowyframe))
+
+model <-
+  glm(nielegal_ogol ~ .,
+      family = binomial(link = 'logit'),
+      data = danelog)
+
+summary(model)
+```
+
+###Zatem gdy brać pod uwagę wszytkie zmienne to jedynie alkohol, nikotyna i dopalacze są istotnymi statystycznie predyktorami (pozytywnie przewdującymi zmienną zależną). Natomiast gdyby wykluczyć je z modelu:
+
+```{r}
+nikotyna_alkohol <- c(13, 14, 16) #tworze wektor z numerami kolumn alkoholu, nikotyny i dopalaczy to 
+
+modelowyframe <- setdiff(istotnenumer, nikotyna_alkohol) #odejmuje go od numerów zmniennych które wrzucę do glm()
+
+modelowyframe <- c(modelowyframe, 24) #dodaje do wektora numer kolumny zmiennej zależnej (nielegal_ogol), żeby potem znalazło się w danelog
+danelog <- subset(dane, select = c(modelowyframe))
+
+model <-
+  glm(nielegal_ogol ~ .,
+      family = binomial(link = 'logit'),
+      data = danelog)
+
+summary(model)
+
+
+```
+## Okazuje się że kierunek medyczny jest najsilnie niezależnym predyktorem jest studiowanie na kierunku medyczny, a co najważniejsze **przewiduje on negatywnie** zmienną niezależną. 
+
+Odds Ratio i odpowiednie przedziały ufności wyglądają następująco: 
+
+```{r}
+t(data.frame(exp(coef(model))))
+
+
+t(data.frame(confint(model, level = 0.95)))
+
+```
+  
+
+
+
+
+
+
+
+
+
+# Odważne wnioski:  
+##**W badanej grupie fakt bycia na studiach medycznych był samodzielnym (negatywnym) predyktorem używania substancji nielegalnych.**
+### Płeć męska oraz wieksze 'deklarowane bycie namawianym do studiowania' były poztywnymi predyktorami. 
