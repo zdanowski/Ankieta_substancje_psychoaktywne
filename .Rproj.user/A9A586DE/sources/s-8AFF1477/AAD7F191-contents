@@ -52,10 +52,15 @@ wilcox.test(legal$Namawianie, nielegal$Namawianie)
 p-value = 0.01582, p >0.05
 H0 odrzucona
 Zatem istnieje istona statystycznie różnica między grupami. 
-
-Średnia odpowiedź w grupie nielegal `r mean(nielegal$Namawianie)`  
-Średnia odpowiedź w grupie legal `r  mean(legal$Namawianie)`
-Zatem grupa nielegal uzyskała istonie wyższy wynik. 
+Średnia odpowiedĹş w grupie nielegal 
+```{r echo=FALSE} 
+paste(mean(nielegal$Namawianie)%>%round(2), "±", round(sd(nielegal$Namawianie), 2))
+```
+Średnia odpowiedĹş w grupie legal
+```{r echo=FALSE} 
+paste(mean(legal$Namawianie)%>%round(2), "±", round(sd(legal$Namawianie), 2))
+```
+Zatem grupa nielegal uzyskaĹ‚a istonie wyĹĽszy wynik. 
 **Wiem, że porównuje zmienne o rozkładzie innym niż normalny ale co mam zrobić jeżeli mediany są tanie same?**
 
 ####Pytanie drugie

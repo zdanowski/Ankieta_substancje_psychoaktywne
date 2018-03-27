@@ -1,0 +1,5 @@
+"0","paste(mean(legal$Namawianie)%>%round(2), ""±"", round(sd(legal$Namawianie), 2))"
+"1","[1]"
+"1"," ""1.83 ± 1.17"""
+"1","
+"
