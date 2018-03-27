@@ -13,6 +13,7 @@ library(ggplot2)
 library(fortunes)
 library(kableExtra)
 library(dbplyr)
+library(vcd)
 ```
 ##### W SKRÓCIE
 ###### W ankiecie wzieły udział **792 osoby**. W tym 416 studentów kierunków medycznych i  376 studentów kierunków niemedycznych. `r round(((593/792)*100), 2)`% (593) respondentów było kobietami.  
@@ -211,6 +212,22 @@ remove(Tabelka)
 Za radą Dr. Bandurskiego postanowiłem poddać te zmienne dla których p w Chi kwadrat > 0.05 regresji logistycznej ( funkcja glm() ). **Co Pan o tym myśli?**
 
 
+```{r}
+
+modelowyframe <- c(3, 24) #dodaje do wektora numer kolumny zmiennej zależnej (nielegal_ogol), żeby potem znalazło się w danelog
+danelog <- subset(dane, select = c(modelowyframe))
+
+model <-
+  glm(nielegal_ogol ~ .,
+      family = binomial(link = 'logit'),
+      data = danelog)
+
+summary(model)
+```
+
+
+
+
 
 ```{r}
 
@@ -249,22 +266,13 @@ summary(model)
 Odds Ratio i odpowiednie przedziały ufności wyglądają następująco: 
 
 ```{r}
-t(data.frame(exp(coef(model))))
-
-
-t(data.frame(confint(model, level = 0.95)))
+exp(cbind(OR = coef(model), confint(model))) %>% round(3)
 
 ```
-  
-
-
-
-
-
 
 
 
 
 # Odważne wnioski:  
 ##**W badanej grupie fakt bycia na studiach medycznych był samodzielnym (negatywnym) predyktorem używania substancji nielegalnych.**
-### Płeć męska oraz wieksze 'deklarowane bycie namawianym do studiowania' były poztywnymi predyktorami. 
+### Płeć męska oraz wieksze 'deklarowane bycie namawianym do studiowania' były poztywnymi predyktorami. 5

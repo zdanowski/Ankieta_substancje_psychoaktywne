@@ -394,7 +394,7 @@ for (i in v) {
 ##     }
 ##     else .Internal(col(dim(x)))
 ## }
-## &lt;bytecode: 0x00000000122d1720&gt;
+## &lt;bytecode: 0x0000000011c93e38&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <pre><code>##      [,1]   [,2]      [,3]         [,4]      [,5]               
 ## [1,] &quot;Wiek&quot; &quot;M=0/K=1&quot; &quot;Namawianie&quot; &quot;Ciekawe&quot; &quot;Kierunek_medyczny&quot;
@@ -407,6 +407,38 @@ for (i in v) {
 <div id="regresja-logistyczna" class="section level2">
 <h2>3. Regresja logistyczna</h2>
 <p>Za radą Dr. Bandurskiego postanowiłem poddać te zmienne dla których p w Chi kwadrat &gt; 0.05 regresji logistycznej ( funkcja glm() ). <strong>Co Pan o tym myśli?</strong></p>
+<pre class="r"><code>modelowyframe &lt;- c(3, 24) #dodaje do wektora numer kolumny zmiennej zależnej (nielegal_ogol), żeby potem znalazło się w danelog
+danelog &lt;- subset(dane, select = c(modelowyframe))
+
+model &lt;-
+  glm(nielegal_ogol ~ .,
+      family = binomial(link = 'logit'),
+      data = danelog)
+
+summary(model)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = nielegal_ogol ~ ., family = binomial(link = &quot;logit&quot;), 
+##     data = danelog)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -0.4956  -0.3384  -0.3384  -0.3384   2.4036  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)  -2.0350     0.2217  -9.178   &lt;2e-16 ***
+## `M=0/K=1`    -0.7964     0.2850  -2.794   0.0052 ** 
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 404.66  on 791  degrees of freedom
+## Residual deviance: 397.27  on 790  degrees of freedom
+## AIC: 401.27
+## 
+## Number of Fisher Scoring iterations: 5</code></pre>
 <pre class="r"><code>modelowyframe &lt;- c(istotnenumer, 24) #dodaje do wektora numer kolumny zmiennej zależnej (nielegal_ogol), żeby potem znalazło się w danelog
 danelog &lt;- subset(dane, select = c(modelowyframe))
 
@@ -497,26 +529,24 @@ summary(model)</code></pre>
 <div id="okazuje-sie-ze-kierunek-medyczny-jest-najsilnie-niezaleznym-predyktorem-jest-studiowanie-na-kierunku-medyczny-a-co-najwazniejsze-przewiduje-on-negatywnie-zmienna-niezalezna." class="section level2">
 <h2>Okazuje się że kierunek medyczny jest najsilnie niezależnym predyktorem jest studiowanie na kierunku medyczny, a co najważniejsze <strong>przewiduje on negatywnie</strong> zmienną niezależną.</h2>
 <p>Odds Ratio i odpowiednie przedziały ufności wyglądają następująco:</p>
-<pre class="r"><code>t(data.frame(exp(coef(model))))</code></pre>
-<pre><code>##                  (Intercept)   Wiek `M=0/K=1` Namawianie   Ciekawe
-## exp.coef.model..  0.01390801 1.0708 0.4972094   1.292185 0.8190941
-##                  Kierunek_medyczny  Kofeina napoje_energertyzujące
-## exp.coef.model..         0.4175487 2.818946               2.115303</code></pre>
-<pre class="r"><code>t(data.frame(confint(model, level = 0.95)))</code></pre>
+<pre class="r"><code>exp(cbind(OR = coef(model), confint(model))) %&gt;% round(3)</code></pre>
 <pre><code>## Waiting for profiling to be done...</code></pre>
-<pre><code>##         (Intercept)        Wiek  `M=0/K=1` Namawianie     Ciekawe
-## X2.5..    -6.811164 -0.03852729 -1.2766420 0.03725722 -0.47150021
-## X97.5..   -1.679338  0.16046498 -0.1052682 0.46861625  0.07956532
-##         Kierunek_medyczny   Kofeina napoje_energertyzujące
-## X2.5..         -1.4824720 0.1981358              0.1128917
-## X97.5..        -0.2901808 2.0426769              1.4387367</code></pre>
+<pre><code>##                           OR 2.5 % 97.5 %
+## (Intercept)            0.014 0.001  0.186
+## Wiek                   1.071 0.962  1.174
+## `M=0/K=1`              0.497 0.279  0.900
+## Namawianie             1.292 1.038  1.598
+## Ciekawe                0.819 0.624  1.083
+## Kierunek_medyczny      0.418 0.227  0.748
+## Kofeina                2.819 1.219  7.711
+## napoje_energertyzujące 2.115 1.120  4.215</code></pre>
 </div>
 <div id="odwazne-wnioski" class="section level1">
 <h1>Odważne wnioski:</h1>
 <div id="w-badanej-grupie-fakt-bycia-na-studiach-medycznych-by-samodzielnym-negatywnym-predyktorem-uzywania-substancji-nielegalnych." class="section level2">
 <h2><strong>W badanej grupie fakt bycia na studiach medycznych był samodzielnym (negatywnym) predyktorem używania substancji nielegalnych.</strong></h2>
-<div id="pec-meska-oraz-wieksze-deklarowane-bycie-namawianym-do-studiowania-byy-poztywnymi-predyktorami." class="section level3">
-<h3>Płeć męska oraz wieksze ‘deklarowane bycie namawianym do studiowania’ były poztywnymi predyktorami.</h3>
+<div id="pec-meska-oraz-wieksze-deklarowane-bycie-namawianym-do-studiowania-byy-poztywnymi-predyktorami.-5" class="section level3">
+<h3>Płeć męska oraz wieksze ‘deklarowane bycie namawianym do studiowania’ były poztywnymi predyktorami. 5</h3>
 </div>
 </div>
 </div>
