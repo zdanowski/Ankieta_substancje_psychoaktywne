@@ -16,7 +16,7 @@ library(dbplyr)
 ```
 ##### W SKRÓCIE
 ###### W ankiecie wzieły udział **792 osoby**. W tym 416 studentów kierunków medycznych i  376 studentów kierunków niemedycznych. `r round(((593/792)*100), 2)`% (593) respondentów było kobietami.  
-######Analizy zmiennych ilościowych dokonano za pomocą testu U Manna-Whitneya oraz testu Chi Kwadrat. Analizy zmiennych binarnych dokonano za pomocą testu Chi Kwadrat. Przyjęty poziom istotności -  alfa = 0,05. Szczegółowy opis zmiennych można znaleźć pod poniższym linkiem.
+######Analizy zmiennych ilościowych dokonano za pomocą testu U Manna-Whitneya oraz testu Chi Kwadrat. Analizy zmiennych binarnych dokonano za pomocą testu Chi Kwadrat. Przyjęty poziom istotności -  alfa = 0,05. Szczegółowy opis zmiennych można znaleźć pod poniższym linkiem. Następnie zastosowane regresję logistyczną.....
   
 ####[>>SZCZEGÓŁOWY OPIS ZMIENNYCH<<](http://htmlpreview.github.io/?https://github.com/zdanowski/Ankieta_substancje_psychoaktywne/blob/master/OPIS_ZMIENNYCH.html)
 
