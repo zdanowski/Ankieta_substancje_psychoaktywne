@@ -1,6 +1,15 @@
 "0","library(knitr, quietly = TRUE) "
+"2","pakiet ‘knitr’ zosta³ zbudowany w wersji R 3.4.4"
 "0","library(ggplot2) "
+"2","pakiet ‘ggplot2’ zosta³ zbudowany w wersji R 3.4.4"
+"2","Want to understand how all the pieces fit together? Buy the ggplot2 book: http://ggplot2.org/book/
+"
 "0","library(fortunes)"
 "0","library(kableExtra)"
+"2","pakiet ‘kableExtra’ zosta³ zbudowany w wersji R 3.4.4"
 "0","library(dbplyr)"
+"2","pakiet ‘dbplyr’ zosta³ zbudowany w wersji R 3.4.4"
 "0","library(vcd)"
+"2","pakiet ‘vcd’ zosta³ zbudowany w wersji R 3.4.4"
+"2","£adowanie wymaganego pakietu: grid
+"

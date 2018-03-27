@@ -245,7 +245,7 @@ summary(model)
 ###Zatem gdy brać pod uwagę wszytkie zmienne to jedynie alkohol, nikotyna i dopalacze są istotnymi statystycznie predyktorami (pozytywnie przewdującymi zmienną zależną). Natomiast gdyby wykluczyć je z modelu:
 
 ```{r}
-nikotyna_alkohol <- c(13, 14, 16) #tworze wektor z numerami kolumn alkoholu, nikotyny i dopalaczy to 
+nikotyna_alkohol <- c(13, 14, 15, 16) #tworze wektor z numerami kolumn alkoholu, nikotyny i dopalaczy to 
 
 modelowyframe <- setdiff(istotnenumer, nikotyna_alkohol) #odejmuje go od numerów zmniennych które wrzucę do glm()
 
@@ -275,4 +275,4 @@ exp(cbind(OR = coef(model), confint(model))) %>% round(3)
 
 # Odważne wnioski:  
 ##**W badanej grupie fakt bycia na studiach medycznych był samodzielnym (negatywnym) predyktorem używania substancji nielegalnych.**
-### Płeć męska oraz wieksze 'deklarowane bycie namawianym do studiowania' były poztywnymi predyktorami. 5
+### Płeć męska oraz wieksze 'deklarowane bycie namawianym do studiowania' były poztywnymi predyktorami.
