@@ -3,11 +3,17 @@ title: "Abstract."
 author: "Szymon Zdanowski, Paula Dybowska, Krzysztof Basiński MSc"
 date: "27 marca 2018"
 output:
-  word_document: default
   pdf_document: default
+  word_document: default
   html_document: default
 ---
-## “Debunking myths - illegal substance use among Polish university students. Comparison of prevalence in medical and non-medical students. Determination of risk factors.“  
+
+\large
+\begin{center}
+Debunking myths - illegal substance use among Polish university students. Comparison of prevalence in medical and non-medical students. Determination of risk factors.
+\end{center}
+
+\normalsize
 
 ### Introduction  
 Studying medicine is for many, especially those not connected with healthcare, often synonymous with sleepless nights devoted to studying and with supposedly unmatched effort connected with finishing those studies. Such convictions are sometimes accompanied by a very harmful, usually supported only by anecdotal evidence, picture of a medical student who has to resort to narcotics in order to keep up with the pace of his studies. The following research was designed to provide empirical data on this, apparently, not in-depth investigated topic.   

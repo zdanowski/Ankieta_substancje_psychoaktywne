@@ -394,7 +394,7 @@ for (i in v) {
 ##     }
 ##     else .Internal(col(dim(x)))
 ## }
-## &lt;bytecode: 0x0000000011c93e38&gt;
+## &lt;bytecode: 0x0000000011c86f68&gt;
 ## &lt;environment: namespace:base&gt;</code></pre>
 <pre><code>##      [,1]   [,2]      [,3]         [,4]      [,5]               
 ## [1,] &quot;Wiek&quot; &quot;M=0/K=1&quot; &quot;Namawianie&quot; &quot;Ciekawe&quot; &quot;Kierunek_medyczny&quot;
@@ -482,7 +482,7 @@ summary(model)</code></pre>
 ## Number of Fisher Scoring iterations: 6</code></pre>
 <div id="zatem-gdy-brac-pod-uwage-wszytkie-zmienne-to-jedynie-alkohol-nikotyna-i-dopalacze-sa-istotnymi-statystycznie-predyktorami-pozytywnie-przewdujacymi-zmienna-zalezna.-natomiast-gdyby-wykluczyc-je-z-modelu" class="section level3">
 <h3>Zatem gdy brać pod uwagę wszytkie zmienne to jedynie alkohol, nikotyna i dopalacze są istotnymi statystycznie predyktorami (pozytywnie przewdującymi zmienną zależną). Natomiast gdyby wykluczyć je z modelu:</h3>
-<pre class="r"><code>nikotyna_alkohol &lt;- c(13, 14, 16) #tworze wektor z numerami kolumn alkoholu, nikotyny i dopalaczy to 
+<pre class="r"><code>nikotyna_alkohol &lt;- c(13, 14, 15, 16) #tworze wektor z numerami kolumn alkoholu, nikotyny i dopalaczy to 
 
 modelowyframe &lt;- setdiff(istotnenumer, nikotyna_alkohol) #odejmuje go od numerów zmniennych które wrzucę do glm()
 
@@ -502,26 +502,25 @@ summary(model)</code></pre>
 ## 
 ## Deviance Residuals: 
 ##     Min       1Q   Median       3Q      Max  
-## -1.1107  -0.4170  -0.2962  -0.2023   2.8406  
+## -1.1336  -0.4102  -0.3118  -0.2262   2.9137  
 ## 
 ## Coefficients:
-##                        Estimate Std. Error z value Pr(&gt;|z|)    
-## (Intercept)            -4.27529    1.29075  -3.312 0.000925 ***
-## Wiek                    0.06841    0.05003   1.367 0.171541    
-## `M=0/K=1`              -0.69874    0.29745  -2.349 0.018818 *  
-## Namawianie              0.25633    0.10960   2.339 0.019347 *  
-## Ciekawe                -0.19956    0.14016  -1.424 0.154514    
-## Kierunek_medyczny      -0.87335    0.30264  -2.886 0.003905 ** 
-## Kofeina                 1.03636    0.46300   2.238 0.025197 *  
-## napoje_energertyzujące  0.74920    0.33596   2.230 0.025748 *  
+##                   Estimate Std. Error z value Pr(&gt;|z|)   
+## (Intercept)       -4.05771    1.25599  -3.231  0.00123 **
+## Wiek               0.07395    0.04839   1.528  0.12646   
+## `M=0/K=1`         -0.75444    0.29483  -2.559  0.01050 * 
+## Namawianie         0.26082    0.10860   2.402  0.01632 * 
+## Ciekawe           -0.21683    0.13809  -1.570  0.11635   
+## Kierunek_medyczny -0.85727    0.30158  -2.843  0.00447 **
+## Kofeina            1.31368    0.44813   2.931  0.00337 **
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
 ## (Dispersion parameter for binomial family taken to be 1)
 ## 
 ##     Null deviance: 404.66  on 791  degrees of freedom
-## Residual deviance: 360.90  on 784  degrees of freedom
-## AIC: 376.9
+## Residual deviance: 366.28  on 785  degrees of freedom
+## AIC: 380.28
 ## 
 ## Number of Fisher Scoring iterations: 6</code></pre>
 </div>
@@ -531,22 +530,21 @@ summary(model)</code></pre>
 <p>Odds Ratio i odpowiednie przedziały ufności wyglądają następująco:</p>
 <pre class="r"><code>exp(cbind(OR = coef(model), confint(model))) %&gt;% round(3)</code></pre>
 <pre><code>## Waiting for profiling to be done...</code></pre>
-<pre><code>##                           OR 2.5 % 97.5 %
-## (Intercept)            0.014 0.001  0.186
-## Wiek                   1.071 0.962  1.174
-## `M=0/K=1`              0.497 0.279  0.900
-## Namawianie             1.292 1.038  1.598
-## Ciekawe                0.819 0.624  1.083
-## Kierunek_medyczny      0.418 0.227  0.748
-## Kofeina                2.819 1.219  7.711
-## napoje_energertyzujące 2.115 1.120  4.215</code></pre>
+<pre><code>##                      OR 2.5 % 97.5 %
+## (Intercept)       0.017 0.001  0.219
+## Wiek              1.077 0.970  1.177
+## `M=0/K=1`         0.470 0.265  0.847
+## Namawianie        1.298 1.045  1.602
+## Ciekawe           0.805 0.616  1.060
+## Kierunek_medyczny 0.424 0.231  0.759
+## Kofeina           3.720 1.666  9.943</code></pre>
 </div>
 <div id="odwazne-wnioski" class="section level1">
 <h1>Odważne wnioski:</h1>
 <div id="w-badanej-grupie-fakt-bycia-na-studiach-medycznych-by-samodzielnym-negatywnym-predyktorem-uzywania-substancji-nielegalnych." class="section level2">
 <h2><strong>W badanej grupie fakt bycia na studiach medycznych był samodzielnym (negatywnym) predyktorem używania substancji nielegalnych.</strong></h2>
-<div id="pec-meska-oraz-wieksze-deklarowane-bycie-namawianym-do-studiowania-byy-poztywnymi-predyktorami.-5" class="section level3">
-<h3>Płeć męska oraz wieksze ‘deklarowane bycie namawianym do studiowania’ były poztywnymi predyktorami. 5</h3>
+<div id="pec-meska-oraz-wieksze-deklarowane-bycie-namawianym-do-studiowania-byy-poztywnymi-predyktorami." class="section level3">
+<h3>Płeć męska oraz wieksze ‘deklarowane bycie namawianym do studiowania’ były poztywnymi predyktorami.</h3>
 </div>
 </div>
 </div>
