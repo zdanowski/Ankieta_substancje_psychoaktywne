@@ -1,6 +1,6 @@
 ---
 title: "Abstract"
-author: "Szymon Zdanowski, Paula Dybowska, Krzysztof Basiñski MSc"
+author: "Szymon Zdanowski, Paula Dybowska, Krzysztof BasiÅ„ski MSc"
 output:
   pdf_document: default
   word_document: default
@@ -20,13 +20,13 @@ Debunking myths - illegal substance use among Polish university students. Compar
 Studying medicine is for many, especially those not connected with healthcare, often synonymous with sleepless nights devoted to studying and with supposedly unmatched effort connected with finishing those studies. Such convictions are sometimes accompanied by a very harmful, usually supported only by anecdotal evidence, picture of a medical student who has to resort to narcotics in order to keep up with the pace of his studies. The following research was designed to provide empirical data on this, apparently, not in-depth investigated topic.   
 
 ### Aim of the study
-The aim of the study was to investigate the prevalence and factors associated with illegal substance use among Polish university students.  
+The aim of the study was to investigate prevalence and factors associated with illegal substance use among Polish university students and to compare the extent of the phenomenon between different faculties.  
 
 ### Material and methods
 Data on age, gender, year of study, faculty, and use of certain psychoactive substances during studying were collected via an online questionnaire. Respondents were able to list custom substances (thus mentioned drugs were then manually classified as legal or illegal). Additionally, two 5-point Likert-like scale based questions were introduced in order to quantify actual interest in the subject of their studies and potential social pressure to choose certain faculty or to take up higher education in general. Mann-Whitney U and Chi-Square tests were used where appropriate. Logistic regression was used to determine the factors associated with illegal substance use. Database and scripts (R v. 3.4.3) are available upon request.  
 
 ### Results  
-In total, 792 university students responded to the survey, medical students comprised 34.34% (N = 272) of the sample. Students who claimed to have used illegal substances during studying had experienced more pressure to take up their studies than those who claimed otherwise (M = 2.34 ± 1.52 vs. M = 1.83 ± 1.17, p=0.016). Additionally, they were less interested in the subject they were studying (3.68 ± 1.2 vs. 4.06 ± 0.9, p= 0.039). A smaller percentage of medical students, in comparison to other students, claimed to have used illegal substances, however the difference was not statistically significant (5.51% vs. 7.78%, p=0.276). Four independent factors associated with illegal substance use were identified by means of logistic regression: male sex (OR 2.13, 95% CI 1.18-3.77), caffeine consumption during studying (OR 3.72, 95% CI 1.67- 9.94), higher degree of pressure to study at a certain faculty (OR 1.30, 95% CI 1.05-1.60) and not studying at a medical university (OR 2.38, 95% CI 1.32-4.35).  
+In total, 792 university students responded to the survey, medical students comprised 34.34% (N = 272) of the sample. Students who claimed to have used illegal substances during studying had experienced more pressure to take up their studies than those who claimed otherwise (M = 2.34 Â± 1.52 vs. M = 1.83 Â± 1.17, p=0.016). Additionally, they were less interested in the subject they were studying (3.68 Â± 1.2 vs. 4.06 Â± 0.9, p= 0.039). A smaller percentage of medical students, in comparison to other students, claimed to have used illegal substances, however the difference was not statistically significant (5.51% vs. 7.78%, p=0.276). Four independent factors associated with illegal substance use were identified by means of logistic regression: male sex (OR 2.13, 95% CI 1.18-3.77), caffeine consumption during studying (OR 3.72, 95% CI 1.67- 9.94), higher degree of pressure to study at a certain faculty (OR 1.30, 95% CI 1.05-1.60) and not studying at a medical university (OR 2.38, 95% CI 1.32-4.35).  
 
 ### Conclusions  
 
