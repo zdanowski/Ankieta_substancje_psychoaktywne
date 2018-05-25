@@ -1,0 +1,5 @@
+"0","paste(mean(legal$Ciekawe)%>%round(2), ""±"", round(sd(legal$Ciekawe), 2))"
+"1","[1]"
+"1"," ""4.06 ± 0.96"""
+"1","
+"

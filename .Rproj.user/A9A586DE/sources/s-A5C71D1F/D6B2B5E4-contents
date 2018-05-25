@@ -1,0 +1,7 @@
+dbp = 
+
+
+ggplot(data = dane) +
+  geom_bar(mapping = aes(x = , fill = class),
+           show.legend = FALSE) +
+  labs(title = "Liczebność samochodów w poszeczególnych klasach", x = "Klasa", y = "Liczba samochodów")

@@ -1,0 +1,6 @@
+"0","library(knitr, quietly = TRUE) "
+"0","library(ggplot2) "
+"0","library(fortunes)"
+"0","library(kableExtra)"
+"0","library(dbplyr)"
+"0","library(vcd)"

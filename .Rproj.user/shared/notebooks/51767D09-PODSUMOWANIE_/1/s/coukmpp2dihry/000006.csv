@@ -1,0 +1,6 @@
+"0","kolumny <- istotnenazwa"
+"0","numeracja <- istotnenumer"
+"0","Tabelka <-data.frame(kolumny[1:5], numeracja[1:5])"
+"0","Tabelka <- t(Tabelka)"
+"0","kable(Tabelka)"
+"2","The table should have a header (column names)"

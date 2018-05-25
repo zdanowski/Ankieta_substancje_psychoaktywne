@@ -1,0 +1,36 @@
+# zad 4-1 w pliku zad4-1.txt
+# Czy jest jakiś sposób by printnąć to ładniej tj. line by line? Nie mogę nigdzie znaleźć.
+read_file("zad4-1.txt")
+
+# zad 4-2
+ggplot(data = mpg) +
+  geom_point(mapping = aes(x = cty,
+                           y = displ)) +
+  labs(title = "Zadanie 1", x = "spalanie w mieście (mile/galon)", y = "pojemność silnika (litry)")
+
+# zad 4-3
+ggplot(data = mpg) +
+  geom_bar(mapping = aes(x = class, fill = class),
+           show.legend = FALSE) +
+  labs(title = "Liczebność samochodów w poszeczególnych klasach", x = "Klasa", y = "Liczba samochodów")
+
+# zad 4-4
+ggplot(data = mpg) +
+  geom_histogram(mapping = aes(displ), binwidth = 0.2) +
+  labs(title = "Rozkład pojemności silnika", x = "Pojemność silnika (litry)", y = "Liczba samochodów") +
+  scale_x_continuous(breaks = seq(1, 8, 0.5))
+
+# zad 4-5
+ggplot(data = mpg, aes(x = class, y = displ)) +
+  geom_boxplot() +
+  coord_flip() +
+  labs(title = "Klasa samochodu a pojemność silnika", x = "Typ samochodu", y = "Pojemność silnika") +
+  scale_y_continuous(breaks = seq(1, 8, 0.5))
+
+# zad 4-6
+ggplot(data = mpg) +
+  geom_smooth(mapping = aes(x = (282.5 / ((
+    mpg[8] + mpg[9]
+  ) / 2)), y = displ)) +
+  labs(title = "Średnie spalanie a pojemność silnika", x = "Średnie spalanie w l/100km", y = "Pojemność silnika w litrach") +
+  scale_x_continuous(breaks = seq(5, 27, 1))
